@@ -1,0 +1,66 @@
+.navbar
+  height: $navbar-height
+  z-index: $z-navbar
+  background-color: $white;
+  box-shadow: 0 1px 2px rgba($black,0.1);
+  border-bottom: 0px solid transparent;
+
+  .navbar-collapse
+    padding-left: $sidebar-width
+
+    .navbar-nav
+      height: $navbar-height - 1px
+      border-bottom: 1px solid transparent;
+      @include flex($align: center)
+
+      & > li
+        @include flex($align: center)
+        height: 40%
+
+      .navbar-title
+        @include flex($align: center)
+        font-weight: 300
+        font-size: 1.2em
+        height: 100%;
+        padding: 0 2rem;
+        border-right: 1px solid $grey
+
+      .search
+        input
+          border: none
+          height: 100%
+          padding: 0 20px
+          font-weight: 200
+
+      .notification
+        a.dropdown-toggle
+          text-align: center;
+          display: block;
+
+          .icon
+            font-size: 1.5em;
+            margin-bottom: 8px;
+            color: $grey-darker;
+
+          .count
+            font-size: 0.8em;
+            font-weight: 300
+            color: $white;
+            background-color: $grey-darker;
+            padding: 0 5px;
+            min-width: 30px;
+            border-radius: 2px;
+            line-height: 16px;
+
+        &.danger
+          a.dropdown-toggle
+            .icon 
+              color: $red;
+            .count
+              background-color: $red;
+        &.warning
+          a.dropdown-toggle
+            .icon 
+              color: $orange;
+            .count
+              background-color: $orange;
