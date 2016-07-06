@@ -1,0 +1,85 @@
+@mixin banner($name, $color)
+  &.card-#{$name}
+    background-color: $color;
+    .card-body
+      .icon
+        color: $white;
+
+      .content
+        .title, .value
+          color: $white;
+    &-light
+      background-color: $white;
+      .card-body
+        border-bottom: 5px solid $color;
+        .icon
+          color: $color;
+        .content
+          .title, .value
+            color: $color;
+
+.card
+  width: 100%;
+  background-color: $white;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px $grey-darker;
+
+  .card-header
+    padding: 18px 30px;
+    font-size: 1.25em;
+  .card-body
+    padding: 30px;
+
+.card.card-banner
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .card-body
+    padding: 0px;
+    border-bottom: 5px solid transparent;
+
+    .icon
+      position: absolute;
+      font-size: 9em;
+      opacity: 0.2;
+      color: $black;
+      z-index: 0;
+
+    .content
+      @include flex
+      position: relative
+      width: 100%;
+      padding: 2rem;
+      z-index: 100;
+
+      .value
+        font-size: 5em;
+        line-height: 3rem;
+        font-weight: 300;
+        padding-top: 3rem;
+        flex: 1
+        text-align: right;
+        color: $black
+        .sign
+          font-size: 0.4em;
+          font-weight: 200;
+          margin-right: 5px;
+          opacity: 0.75;
+
+      .title 
+        font-size: 1.25em;
+        font-weight: 200;
+        flex: 1
+        color: $black
+  
+    &::after
+      content: '';
+      position: relative;
+      display: block;
+      clear: both;
+
+  @include banner("green", $green)
+  @include banner("blue", $blue-sky)
+  @include banner("orange", $orange)

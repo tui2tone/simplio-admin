@@ -2,12 +2,12 @@
   "path": ".."
 })
 
-@@include('../components/sidebar/sidebar.html',{
-  "path": ".."
-})
-@@include('../components/navbar/navbar.html',{
-  "path": ".."
-})
+@@include('../components/sidebar/sidebar.html')
+@@include('../components/navbar/navbar.html')
+
+<div class="app-container">
+  @@include('./include/dashboard.html')
+</div>
 
 @@include('./include/footer.html',{
   "path": ".."

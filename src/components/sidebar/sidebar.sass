@@ -29,6 +29,7 @@ aside.app-sidebar
 
     & > li
       margin-bottom: 2rem;
+      width: 100%;
       & > a
         display: block;
         text-align: center;
@@ -64,21 +65,36 @@ aside.app-sidebar
             color: $green;
 
       &.dropdown
-        .dropdown-menu
+        & > .dropdown-menu
           top: 0;
           left: 100%;
           border-radius: 3px;
           box-shadow: 0 1px 1px $grey-darkest;
           border: 0;
+          padding: 0;
+          min-width: 250px;
 
-          .panel-heading
-            background: transparent
-            padding: 0.6rem 0;
-            color: $black
-            font-weight: 300;
-            border-bottom: 2px solid $grey-darkest;
-
-          .panel-body
+          & > li
+            border: 0
+            border-radius: 0;
             padding: 0;
-            min-width: 220px;
+            border-bottom: 1px dashed $grey;
+            margin-bottom: 0;
+            font-weight: 300;
+            font-size: 0.9em;
+
+            a
+              display: block;
+              text-decoration: none;
+              color: $black
+              padding: 1.5rem 3rem;
+
+            &:last-child
+              border-bottom: 0;
+
+        &:hover
+          & > .dropdown-menu
+            animation: fadeInLeft 0.3s 1;
+            display: block;
+
 
