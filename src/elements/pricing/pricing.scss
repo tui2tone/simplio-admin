@@ -1,0 +1,121 @@
+.pricing-table {
+  border-left: 1px solid #F9F9F9;
+  & > .pricing-header {
+    border-bottom: 2px solid #F9F9F9;
+    padding: 20px;
+    text-align: center;
+    & > .title {
+      font-size:1.05em;
+      text-transform: uppercase;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    & > .subtitle {
+      font-size:0.8em;
+    }
+  }
+
+  & > .pricing-body {
+    padding: 20px;
+    color: #666;
+
+    ul.description {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      & > li {
+        padding: 8px 0px;
+        margin: 0;
+        border-bottom: 1px solid #F9F9F9;
+
+        .icon {
+          float: left;
+          min-width: 25px;
+          text-align: center;
+          margin-right: 8px;
+        }
+      }
+
+      & > li:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  & > .pricing-footer {
+    border-top: 2px solid #F9F9F9;
+    text-align: center;
+    padding: 15px;
+  }
+}
+
+.pricing-table.highlight {
+  border-radius: 4px;
+  box-shadow: 0 1px 0px rgba(0,0,0,0.08);
+  position: absolute;
+  width: 100%;
+  background-color: #FFF;
+  margin-top: -25px;
+  & > .pricing-body {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 991px) {
+
+  .pricing-table.highlight {
+    border-radius: 0px;
+    margin-top: 0px;
+    position: relative;
+    & > .pricing-body {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.pricing-table.green {
+  color: #FFF;
+  background-color: #29c75f;
+  & > .pricing-header {
+    border-bottom: 2px solid #18aa4a;
+  }
+  & > .pricing-footer {
+    border-top: 2px solid #18aa4a;
+  }
+  & > .pricing-body {
+    color: #FFF;
+    ul.description {
+      & > li {
+        border-bottom: 1px solid #18aa4a;
+      }
+
+      & > li:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+
+.pricing-table.light-yellow {
+  & > .pricing-header {
+    border-bottom: 2px solid #fbd490;
+    background-color: #ffe5b6;
+    color: #8a6d3b;
+  }
+}
+
+
+.pricing-table.light-blue {
+  & > .pricing-header {
+    border-bottom: 2px solid #93e5f3;
+    background-color: #c3f0f7;
+  }
+}
+
+.pricing-table.light-green {
+  & > .pricing-header {
+    border-bottom: 2px solid #9df0b9;
+    background-color: #bafed1;
+  }
+}
