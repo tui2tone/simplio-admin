@@ -1,0 +1,25 @@
+.app-login
+  background: $green
+  padding: 0 !important;
+
+  .app-body 
+    background-color: $white;
+    border-radius: 2px
+    padding: 3rem;
+
+    .form-header
+      @include flex($align: center, $justify: center)
+      font-size: 2em;
+      font-weight: 300;
+      color: $black
+      margin-bottom: 3rem;
+
+      .highlight
+        font-weight: 400
+        color: $green
+        margin-right: 2px;
+
+    form
+      min-width: 280px;
+      .btn-submit
+        width: 100%;
