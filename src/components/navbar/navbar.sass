@@ -54,6 +54,7 @@
                 font-size: 1.5em;
                 margin-bottom: 8px;
                 color: $grey-darker;
+                transition: all 0.2s ease;
 
               .count
                 font-size: 0.8em;
@@ -65,11 +66,16 @@
                 border-radius: 2px;
                 line-height: 16px;
 
+              &:hover
+                .icon
+                  transform: scale(1.1) rotate(7deg);
+
             & > .dropdown-menu
+              margin-top: -15px;
               animation: fadeOutDown 0.5s infinite;
-              padding: 1rem 2rem
+              padding: 0;
               border-radius: 3px;
-              box-shadow: 0 1px 1px $grey-darkest;
+              box-shadow: 0 1px 1px $grey-darker;
               border: 0;
               min-width: 200px;
 
@@ -77,7 +83,7 @@
                 border: 0
                 border-radius: 0;
                 padding: 0;
-                border-bottom: 1px dashed $grey;
+                border-bottom: 1px solid $grey;
                 margin-bottom: 0;
                 font-weight: 300;
                 font-size: 0.9em;
@@ -86,7 +92,7 @@
                   display: block;
                   text-decoration: none;
                   color: $black
-                  padding: 1rem 0;
+                  padding: 1.2rem;
 
                   .message
                     @include flex($align: center)
@@ -119,10 +125,11 @@
 
                 &.dropdown-header
                   background: transparent
-                  padding: 0.6rem 0;
-                  color: $black
-                  font-weight: 300;
-                  border-bottom: 2px solid $grey-darkest;
+                  padding: 1.2rem;
+                  color: $white;
+                  font-weight: 400;
+                  background-color: $grey-darkest;
+                  border-bottom: 0px solid $grey-darkest;
 
                 &.dropdown-footer
                   background-color: transparent
@@ -133,8 +140,7 @@
 
                   a
                     color: $grey-darkest;
-                    padding: 1rem 0;
-                    padding-bottom: 0.6rem;
+                    padding: 1.2rem;
 
                 &:last-child
                   border-bottom: 0;
@@ -153,8 +159,8 @@
 
               & > .dropdown-menu
                 & > li.dropdown-header
-                  color: $red
-                  border-bottom: 2px solid $red;
+                  background-color: $red
+                  border-bottom: 0px solid $red;
             &.warning
               a.dropdown-toggle
                 .icon 
@@ -163,7 +169,7 @@
                   background-color: $orange;
               & > .dropdown-menu
                 & > li.dropdown-header
-                  color: $orange
+                  background-color: $orange
                   border-bottom: 2px solid $orange;
           &.profile
             & > a

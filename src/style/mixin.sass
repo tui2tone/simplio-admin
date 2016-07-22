@@ -1,3 +1,8 @@
+$assets-path: "/assets/images/";
+
+@function asset($url)
+  @return url($assets-path + $url);
+
 /**!
   * Mixin
   */
@@ -29,6 +34,12 @@
   width: $width
   height: $height
 
+
+@mixin blur($px: 3px)
+  filter: asset("blur.svg#blur");
+  -webkit-filter: blur($px);
+  filter: blur($px);
+
 /**!
   * Display
   */
@@ -46,4 +57,5 @@
 
 @mixin font()
   font-family: 'Open Sans', sans-serif;
+
   
