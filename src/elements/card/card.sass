@@ -35,55 +35,78 @@
   .card-body
     padding: 30px;
 
-.card.card-banner
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  border-radius: 2px;
+  &.card-tab
+    .card-header
+      list-style: none
+      padding: 30px;
+      padding-bottom: 0;
+      padding-top: 0;
+      @include flex;
 
-  .card-body
-    padding: 0px;
-    border-bottom: 5px solid transparent;
+      & > li
+        display: block;
+        margin-right: 30px;
+        margin-bottom: -2px;
+        a
+          padding-top: 30px;
+          padding-bottom: 30px;
+          display: block;
+          text-decoration: none;
+          color: $grey-darkest;
+        &.active
+          a
+            border-bottom: 3px solid $green;
+            color: $green;
 
-    .icon
-      position: absolute;
-      font-size: 9em;
-      opacity: 0.2;
-      color: $black;
-      z-index: 0;
+  &.card-banner
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
 
-    .content
-      @include flex
-      position: relative
-      width: 100%;
-      padding: 2rem;
-      z-index: 100;
+    .card-body
+      padding: 0px;
+      border-bottom: 5px solid transparent;
 
-      .value
-        font-size: 5em;
-        line-height: 3rem;
-        font-weight: 300;
-        padding-top: 3rem;
-        flex: 1
-        text-align: right;
-        color: $black
-        .sign
-          font-size: 0.4em;
+      .icon
+        position: absolute;
+        font-size: 9em;
+        opacity: 0.2;
+        color: $black;
+        z-index: 0;
+
+      .content
+        @include flex
+        position: relative
+        width: 100%;
+        padding: 2rem;
+        z-index: 100;
+
+        .value
+          font-size: 5em;
+          line-height: 3rem;
+          font-weight: 300;
+          padding-top: 3rem;
+          flex: 1
+          text-align: right;
+          color: $black
+          .sign
+            font-size: 0.4em;
+            font-weight: 200;
+            margin-right: 5px;
+            opacity: 0.75;
+
+        .title 
+          font-size: 1.25em;
           font-weight: 200;
-          margin-right: 5px;
-          opacity: 0.75;
-
-      .title 
-        font-size: 1.25em;
-        font-weight: 200;
-        flex: 1
-        color: $black
-  
-    &::after
-      content: '';
-      position: relative;
-      display: block;
-      clear: both;
+          flex: 1
+          color: $black
+    
+      &::after
+        content: '';
+        position: relative;
+        display: block;
+        clear: both;
 
   @include banner("green", $green)
   @include banner("blue", $blue-sky)

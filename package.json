@@ -25,6 +25,9 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.6",
+    "chartist": "^0.9.8",
+    "datatables.net": "^1.10.12",
+    "datatables.net-bs": "^1.10.12",
     "font-awesome": "^4.6.3",
     "ionicons": "^3.0.0",
     "jquery": "^3.0.0",

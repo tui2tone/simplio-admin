@@ -4,16 +4,16 @@
 
 @@include('../components/sidebar/sidebar.html',{
   "menu": {
-    "dashboard": "active",
+    "dashboard": "",
+    "inbox": "active",
     "uikits": ""
   }
 })
 @@include('../components/subsidebar/subsidebar.html')
 @@include('../components/navbar/navbar.html',
-  { "title": "Dashboard" })
+  { "title": "Inbox" })
 
 <div class="app-container">
-  @@include('./include/dashboard.html')
 </div>
 
 @@include('./include/footer.html',{
