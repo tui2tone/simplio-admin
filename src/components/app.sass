@@ -16,6 +16,15 @@ body
     & > .row
       padding: 15px;
 
+    &.app-full
+      padding: 0px;
+      padding-top: $navbar-height
+      padding-left: $sidebar-width
+      & > .row
+        padding: 0px;
+        padding-left: -15px;
+        padding-right: -15px;
+
 *
   box-sizing: border-box
 
@@ -24,4 +33,19 @@ body
 
 a:hover
   text-decoration: none;
+
+.full-height
+  height: 100%;
+
+.row
+  &.full-height
+    height: 100%;
+    & > [class*="col-"]
+      height: 100%;
+  &.no-gap
+    margin-left: 0;
+    margin-right: 0;
+    & > [class*="col-"]
+      padding-left: 0;
+      padding-right: 0;
 
