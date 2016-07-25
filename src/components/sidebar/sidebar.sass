@@ -1,7 +1,8 @@
 aside.app-sidebar
-  @include absolute($width: $sidebar-width, $left: 0)
+  @include fixed($width: $sidebar-width, $left: 0)
   z-index: $z-sidebar
   background-color: $white
+  overflow-x: scroll;
   box-shadow: 0 2px 2px rgba($black,0.2)
 
   .sidebar-header
@@ -77,15 +78,18 @@ aside.app-sidebar
             color: $green;
 
       &.dropdown
+        position: static !important;
+
         & > .dropdown-menu
           top: 0;
           left: 100%;
-          margin-left: -20px;
+          height: 100%;
           border-radius: 2px;
           box-shadow: 0 1px 1px $grey-darker;
           border: 0;
           border-left: 4px solid $green;
           padding: 0;
+          padding-top: $navbar-height;
           min-width: 250px;
 
           & > li
@@ -105,20 +109,53 @@ aside.app-sidebar
 
             &:last-child
               border-bottom: 0;
-          &:after
-            content: '';
-            display: block;
-            position: absolute;
-            width: 0; 
-            height: 0; 
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent; 
-            border-right: 15px solid $green;
-            top: 10px;
-            right: 100%;
-        &:hover
-          & > .dropdown-menu
-            animation: fadeInLeft 0.3s 1;
-            display: block;
+        // &.open
+        //   & > .dropdown-menu
+        //     animation: fadeInLeft 0.3s 1;
+        //     display: block;
+        //   & > a
+        //     position: relative;
+        //     &:after
+        //       animation: fadeInLeft 0.3s 1;
+        //       content: '';
+        //       display: block;
+        //       position: absolute;
+        //       width: 0; 
+        //       height: 0; 
+        //       border-top: 15px solid transparent;
+        //       border-bottom: 15px solid transparent; 
+        //       border-right: 15px solid $green;
+        //       top: 15px;
+        //       right: 0;
 
+.dropdown-menu.--sidebar
+  top: 0;
+  left: $sidebar-width;
+  height: 100%;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px $grey-darker;
+  border: 0;
+  border-left: 4px solid $green;
+  padding: 0;
+  padding-top: $navbar-height;
+  min-width: 250px;
+  position: fixed;
+  overflow-x: scroll;
 
+  & > li
+    border: 0
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 0;
+    font-weight: 300;
+    border-bottom: 1px solid $grey-lighter;
+    font-size: 0.9em;
+
+    a
+      display: block;
+      text-decoration: none;
+      color: $grey-darkest;
+      padding: 1.8rem 3rem;
+
+    &:last-child
+      border-bottom: 0;
