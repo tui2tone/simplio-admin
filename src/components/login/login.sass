@@ -4,64 +4,80 @@
 
   .app-body 
     position: relative;
+    display: flex;
 
-    .app-form
+    .app-block
       transition: all 0.2s ease;
       background-color: $white;
       border-radius: 2px
-      padding: 4rem;
+      position: relative
+      @include flex($align: center, $justify: center)
 
-      .form-header
-        @include flex($align: center, $justify: center)
-        font-size: 2em;
-        font-weight: 200;
-        color: $black
-        margin-bottom: 4rem;
+      .app-right-section
+        background-color: $green-darker;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+        height: 100%;
+        position: relative
+        padding: 4rem;
+        display: flex; 
 
-        .highlight
-          font-weight: 400
-          color: $green
-          margin-right: 2px;
+      .app-form
+        padding: 4rem;
+        position: relative
+        flex: 1;
 
-      form
-        min-width: 280px;
-        .btn-submit
+        .form-header
+          @include flex($align: center, $justify: center)
+          font-size: 2em;
+          font-weight: 200;
+          color: $black
+          margin-bottom: 4rem;
+
+          .highlight
+            font-weight: 400
+            color: $green
+            margin-right: 2px;
+
+        form
+          min-width: 280px;
+          .btn-submit
+            width: 100%;
+
+        .form-line
           width: 100%;
-
-      .form-line
-        width: 100%;
-        position: relative;
-        text-align: center;
-        font-size: 0.9em;
-        z-index: 2;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        color: $grey-darkest;
-
-        .title
-          background-color: $white;
           position: relative;
+          text-align: center;
+          font-size: 0.9em;
           z-index: 2;
-          width: 50px;
-          margin: 0 auto;
-        &:after
-          content: '';
-          position: absolute;
-          width: 50%;
-          bottom: 50%;
-          left: 50%;
-          transform: translate(-50%, 0);
-          z-index: 1;
-          border-bottom: 1px solid $grey;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          color: $grey-darkest;
 
-      .form-footer
-        text-align: center;
-        .btn
-          margin: 0 auto;
+          .title
+            background-color: $white;
+            position: relative;
+            z-index: 2;
+            width: 50px;
+            margin: 0 auto;
+          &:after
+            content: '';
+            position: absolute;
+            width: 50%;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: 1;
+            border-bottom: 1px solid $grey;
+
+        .form-footer
+          text-align: center;
+          .btn
+            margin: 0 auto;
 
     &.--loading
 
-      .app-form
+      .app-block
         @include blur(2px);
         transform: scale(0.8);
 
