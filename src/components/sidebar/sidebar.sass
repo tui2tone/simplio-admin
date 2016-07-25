@@ -109,24 +109,21 @@ aside.app-sidebar
 
             &:last-child
               border-bottom: 0;
-        // &.open
-        //   & > .dropdown-menu
-        //     animation: fadeInLeft 0.3s 1;
-        //     display: block;
-        //   & > a
-        //     position: relative;
-        //     &:after
-        //       animation: fadeInLeft 0.3s 1;
-        //       content: '';
-        //       display: block;
-        //       position: absolute;
-        //       width: 0; 
-        //       height: 0; 
-        //       border-top: 15px solid transparent;
-        //       border-bottom: 15px solid transparent; 
-        //       border-right: 15px solid $green;
-        //       top: 15px;
-        //       right: 0;
+        &.open
+          & > a
+            position: relative;
+            &:after
+              animation: fadeInLeft 0.3s 1;
+              content: '';
+              display: block;
+              position: absolute;
+              width: 0; 
+              height: 0; 
+              border-top: 15px solid transparent;
+              border-bottom: 15px solid transparent; 
+              border-right: 15px solid $green;
+              top: 15px;
+              right: 0;
 
 .dropdown-menu.--sidebar
   top: 0;

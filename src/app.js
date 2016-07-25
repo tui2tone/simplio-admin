@@ -2,14 +2,4 @@
 import Login from './components/login/login'
 import Datatable from './elements/table/datatable'
 import Chart from './elements/chart/chart'
-
-var dropdownMenu;                                     
-$('.dropdown[data-placement="body"]').on('show.bs.dropdown', (e) => {
-  dropdownMenu = $(e.target).find('.dropdown-menu');
-  $('body').append(dropdownMenu.detach());          
-  dropdownMenu.css('display', 'block');             
-});                                                   
-$('.dropdown[data-placement="body"]').on('hide.bs.dropdown', (e) => {        
-  $(e.target).append(dropdownMenu.detach());        
-  dropdownMenu.hide();                              
-});         
+import SidebarDropdown from './elements/dropdown/sidebar'
