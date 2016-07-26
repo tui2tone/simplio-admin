@@ -1,8 +1,9 @@
 .app-messaging
+  @include flex
   .messaging
     @include flex($direction: column)
     height: 100%;
-    width: 100%;
+    flex: 1
 
     & > .heading
       padding: 20px;
@@ -90,7 +91,7 @@
 
   .chat-group
     height: 100%;
-    width: 100%;
+    width: 300px;
     @include flex($direction: column);
     .heading
       width: 100%;
