@@ -58,4 +58,7 @@ $assets-path: "/assets/images/";
 @mixin font()
   font-family: 'Open Sans', sans-serif;
 
-  
+
+@mixin breakpoint($breakpoint)
+  @media (max-width: $breakpoint)
+    @content;

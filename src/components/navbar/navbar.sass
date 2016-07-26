@@ -10,12 +10,25 @@
 
   .navbar-header
     height: $navbar-height
-    padding: 0 10px
+    padding: 0px;
     width: $sidebar-width
     margin-left: -15px;
     position: relative;
     text-align: center;
     box-shadow:  1px 0px 1px 0px rgba(68, 68, 68, 0.1);
+    @include flex;
+
+    .navbar-toggle
+      position: relative;
+      display: none;
+      height: 100%;
+      border: 0;
+      border-right: 1px solid $grey;
+      padding: 2rem;
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 0;
 
     .navbar-brand
       @include flex($align: center, $justify: center)
@@ -249,3 +262,9 @@
               animation: fadeInUp 0.5s 1;
               display: block;
 
+@include breakpoint($xs)
+  .navbar
+    .navbar-header
+      width: auto;
+      .navbar-toggle
+        display: block;
