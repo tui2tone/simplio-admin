@@ -220,44 +220,51 @@
                 height: 60px;
                 border-radius: 50%;
 
-            .dropdown-menu.panel
+            .dropdown-menu
+              min-width: 250px;
               padding: 0;
-              border-radius: 3px;
-              box-shadow: 0 1px 1px $grey-darkest;
-              border: 0;
+              .profile-info
+                background-color: $green
+                color: $white;
+                padding: 2rem;
 
-              .panel-heading
-                background: transparent
-                padding: 0.6rem 0;
-                color: $black
-                font-weight: 300;
-                border-bottom: 2px solid $grey-darkest;
+                h4
+                  margin-top: 0;
+                  margin-bottom: 0
 
-              .panel-body
+                hr 
+                  margin-top: 1rem;
+                  margin-bottom: 1rem;
+                  opacity: 0.2;
+
+                p
+                  margin-bottom: 0;
+              .action
+                list-style: none;
+                margin: 0;
                 padding: 0;
-                min-width: 220px;
+                border-radius: 3px;
+                border: 0;
+                min-width: 200px;
 
-                ul.profile-menu
-                  list-style: none;
+                & > li
+                  border: 0
+                  border-radius: 0;
                   padding: 0;
-                  margin: 0;
+                  border-bottom: 1px solid $grey;
+                  margin-bottom: 0;
+                  font-weight: 300;
+                  font-size: 0.9em;
 
-                  & > li
-                    border: 0
-                    border-radius: 0;
-                    margin-bottom: 0;
-                    font-weight: 300;
-                    font-size: 0.9em;
-
-                    a
-                      display: block;
-                      padding: 1rem;
-                      border-bottom: 1px dashed $grey;
-                      color: $black
-                    &:last-child
-                      a
-                        border-bottom: 0;
-          &:hover
+                  a
+                    display: block;
+                    text-decoration: none;
+                    color: $black
+                    padding: 1.2rem;
+          &.open
+            & > a 
+              & , &:hover, a:focus
+                background-color: transparent;
             & > .dropdown-menu
               animation: fadeInUp 0.5s 1;
               display: block;

@@ -7,5 +7,5 @@ import runSequence from 'run-sequence';
 const tarks = requireDir("./tasks");
 
 gulp.task('dev', () => {
-  return runSequence('html', 'sass', 'fonts', 'js:watch','browser-sync', 'watch');
+  return runSequence('html', 'sass', 'fonts','image', 'js:watch','browser-sync', 'watch');
 });
