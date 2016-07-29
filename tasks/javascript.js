@@ -5,7 +5,7 @@ import source from 'vinyl-source-stream';
 import watchify from 'watchify';
 import gutil from 'gulp-util';
 
-function build(file, watch) {
+function build(file, watch, dest) {
   var props = {
     entries: [file],
     extensions: ['.js'],
@@ -27,7 +27,7 @@ function build(file, watch) {
     return stream
       .on('error', function() {})
       .pipe(source('app.js'))
-      .pipe(gulp.dest('./temp/js/'))
+      .pipe(gulp.dest(dest))
       .on('end', function(){ 
         gutil.log('Done!'); 
       });
@@ -42,5 +42,9 @@ function build(file, watch) {
 }
 
 gulp.task("js:watch", function() {
-  return build('./src/app.js', true);
+  return build('./src/app.js', true, './temp/js/');
+});
+
+gulp.task("angularjs:js:watch", function() {
+  return build('./src/angularjs/js/app.js', true, './temp/angularjs/js/');
 });
