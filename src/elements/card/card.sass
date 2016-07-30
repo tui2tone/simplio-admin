@@ -31,6 +31,23 @@
     border-bottom: 1px solid $grey;
     border-left: 0px solid transparent;
     color: $black-lighter
+    position: relative
+    @include flex;
+
+    .card-title
+      flex: 1;
+    .card-action
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      & > li
+        & > a
+          color: $grey;
+        & > .dropdown-menu
+          right: 0;
+          left: auto;
+          border-radius: 2px;
+
   .card-body
     padding: 30px;
   
