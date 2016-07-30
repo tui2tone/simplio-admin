@@ -6,8 +6,16 @@ table.table
       td, th
         font-size: $font-size;
         padding: 1.5rem 3rem;
-      
-
+  &.card-table
+    margin-bottom: 0
+    & > thead
+      & > tr
+        & > th
+          margin-left: 1px;
+          background-color: $grey-lightest;
+          border-bottom-color: $grey;
+          color: $black-lighter;
+          font-weight: 200;
 // table.table-card
 //   border-collapse: separate;
 //   border-spacing: 0px 4px;

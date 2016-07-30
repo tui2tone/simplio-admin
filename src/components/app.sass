@@ -19,22 +19,15 @@ body
     padding-top: $navbar-height
     padding-left: $sidebar-width
 
+    & > *:first-child
+      margin-top: 30px;
+
     & > .row
-      padding: 30px;
+      padding-left: 30px
+      padding-right: 30px;
 
       & > [class*="col-"]
         margin-bottom: 30px;
-
-
-
-    &.app-full
-      padding: 0px;
-      padding-top: $navbar-height
-      padding-left: $sidebar-width
-      & > .row
-        padding: 0px;
-        padding-left: -15px;
-        padding-right: -15px;
 
 *
   box-sizing: border-box
@@ -59,6 +52,9 @@ a:hover
     & > [class*="col-"]
       padding-left: 0;
       padding-right: 0;
+  &.full-width
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 
 @include breakpoint($sm)
   body
@@ -66,7 +62,8 @@ a:hover
       padding-left: 0;
       padding-top: $navbar-height-min
       & > .row
-        padding: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
 
         & > [class*="col-"]
           margin-bottom: 15px;
