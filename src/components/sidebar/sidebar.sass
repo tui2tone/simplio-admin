@@ -1,5 +1,6 @@
 aside.app-sidebar
   @include fixed($width: $sidebar-width, $left: 0)
+  @include flex($direction: column)
   z-index: $z-sidebar
   background-color: $white
   overflow-x: scroll;
@@ -26,9 +27,11 @@ aside.app-sidebar
         margin-right: 5px;
 
   .sidebar-menu
-    @include flex($direction: column, $align: center, $justify: center)
+    @include flex($direction: column, $align: center)
     list-style: none;
     margin: 0;
+    flex: 1
+    width: 100%;
     padding: 4rem 0;
 
     & > li
@@ -125,37 +128,127 @@ aside.app-sidebar
               top: 15px;
               right: 0;
 
-.dropdown-menu.--sidebar
-  top: 0;
-  left: $sidebar-width;
-  height: 100%;
-  border-radius: 2px;
-  box-shadow: 0 1px 1px $grey-darker;
-  border: 0;
-  border-left: 4px solid $green;
-  padding: 0;
-  padding-top: $navbar-height;
-  min-width: 250px;
-  position: fixed;
-  overflow-x: scroll;
-
-  & > li
-    border: 0
-    border-radius: 0;
+  .sidebar-footer
+    border-top: 1px solid $grey;
+    width: 100%;
     padding: 0;
-    margin-bottom: 0;
-    font-weight: 300;
-    border-bottom: 1px solid $grey-lighter;
-    font-size: 0.9em;
+    position: relative;
+    ul.menu
+      list-style: none;
+      margin: 0
+      padding: 0;
+      @include flex($justify: center);
 
-    a
-      display: block;
-      text-decoration: none;
-      color: $grey-darkest;
-      padding: 1.8rem 3rem;
+      & > li
+        & > a
+          padding: 15px 8px;
+          font-size: 0.9em;
+          display: block;
+          color: $grey-darkest;
 
-    &:last-child
-      border-bottom: 0;
+          .flag-icon
+            box-shadow: 0 1px 1px $grey-lighter;
+        &.dropdown
+          position: static !important;
+
+          & > a
+            position: relative;
+          .dropdown-menu
+            width: 100%;
+            left: 0;
+            padding: 0;
+            top: auto;
+            bottom: 100%;
+            z-index: $z-sidebar + 5;
+            border-radius: 0;
+            border: 0;
+            background-color: $green;
+            box-shadow: 0 -1px 1px $grey-darker;
+
+            & > li
+              border: 0
+              border-radius: 0;
+              padding: 0;
+              margin-bottom: 0;
+              font-weight: 300;
+              border-bottom: 1px solid rgba($green-darker,0.2);
+              font-size: 0.9em;
+              a
+                display: block;
+                text-decoration: none;
+                color: $white;
+                padding: 0.9rem 1.5rem;
+                &:hover
+                  background-color: $white;
+                  color: $green-darker;
+
+          &.open
+            & > a
+              &:after
+                animation: fadeInDown 0.3s 1;
+                content: '';
+                display: block;
+                position: absolute;
+                width: 0; 
+                height: 0; 
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent; 
+                border-top: 8px solid $green;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, 0)
+
+
+
+.dropdown-menu
+  &.--sidebar-footer
+    bottom: 80px;
+    width: $sidebar-width;
+    left: 0;
+    box-shadow: 0 1px 1px $grey-darker;
+    border-bottom: 4px solid $green;
+    position: fixed;
+    z-index: $z-sidebar + 5;
+    transform: translate(0, -100%)
+    & > li
+      border: 0
+      border-radius: 0;
+      padding: 0;
+      margin-bottom: 0;
+      font-weight: 300;
+      border-bottom: 1px solid $grey-lighter;
+      font-size: 0.9em;
+  &.--sidebar
+    top: 0;
+    left: $sidebar-width;
+    height: 100%;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px $grey-darker;
+    border: 0;
+    border-left: 4px solid $green;
+    padding: 0;
+    padding-top: $navbar-height;
+    min-width: 250px;
+    position: fixed;
+    overflow-x: scroll;
+
+    & > li
+      border: 0
+      border-radius: 0;
+      padding: 0;
+      margin-bottom: 0;
+      font-weight: 300;
+      border-bottom: 1px solid $grey-lighter;
+      font-size: 0.9em;
+
+      a
+        display: block;
+        text-decoration: none;
+        color: $grey-darkest;
+        padding: 1.8rem 3rem;
+
+      &:last-child
+        border-bottom: 0;
 
 @include breakpoint($sm)
   aside.app-sidebar

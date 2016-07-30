@@ -18,6 +18,34 @@
         &.badge-success
           background-color: $green;
 
+    & > .footer
+      width: 100%;
+      padding: 8px;
+      background-color: $grey;
+      .message-box
+        background-color: $white;
+        border-radius: 2px;
+        box-shadow: 0 1px 1px $grey-darker;
+        width: 100%;
+        height: 80px;
+        @include flex;
+        border-top: 1px solid $grey;
+
+        textarea, button
+          margin-bottom: 0;
+          border: 0;
+          height: 100%;
+          border-radius: 0;
+
+        textarea
+          flex: 1;
+
+        button
+          border-left: 1px solid $grey;
+          color: $green;
+          .fa
+            margin-right: 1rem;
+
     ul.chat
       flex: 1
       @include flex($direction: column)
