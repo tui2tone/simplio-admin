@@ -1,0 +1,18 @@
+.nav-tabs
+  @include flex;
+  border-bottom: 2px solid $grey;
+  border-radius: 1px;
+  margin-bottom: 15px;
+
+  & > li
+    border: 0;
+    margin-bottom: -2px;
+    
+    a, a:focus, a:hover
+      padding: 15px 30px;
+      border: 0;
+    &.active
+      a, a:focus, a:hover
+        border: 0;
+        border-bottom: 2px solid $green;
+        border-radius: 1px;
