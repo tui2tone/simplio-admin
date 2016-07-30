@@ -29,6 +29,8 @@
       left: 0;
       top: 0;
       margin: 0;
+      border-radius: 0
+      z-index: 1;
 
     .navbar-brand
       @include flex($align: center, $justify: center)
@@ -271,7 +273,11 @@
 
 @include breakpoint($sm)
   .navbar
+    height: $navbar-height-min
     .navbar-header
+      height: $navbar-height-min
       width: auto;
+      .navbar-brand
+        height: $navbar-height-min
       .navbar-toggle
         display: block;

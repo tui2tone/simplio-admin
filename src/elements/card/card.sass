@@ -1,13 +1,13 @@
-@mixin banner($name, $color)
+@mixin banner($name, $color, $font-color)
   &.card-#{$name}
     background-color: $color;
     .card-body
       .icon
-        color: $white;
+        color: $font-color;
 
       .content
         .title, .value
-          color: $white;
+          color: $font-color;
     &-light
       background-color: $white;
       .card-body
@@ -23,7 +23,6 @@
   background-color: $white;
   border-radius: 2px;
   box-shadow: 0 1px 2px $grey-darker;
-  margin-bottom: 30px;
 
   .card-header
     padding: 30px;
@@ -110,6 +109,7 @@
         display: block;
         clear: both;
 
-  @include banner("green", $green)
-  @include banner("blue", $blue-sky)
-  @include banner("orange", $orange)
+  @include banner("green", $green, $white)
+  @include banner("blue", $blue-sky, $white)
+  @include banner("orange", $orange, $white)
+  @include banner("yellow", $yellow, $white)

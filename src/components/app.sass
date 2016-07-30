@@ -13,13 +13,19 @@ body
   background-color: $grey-lighter;
 
   .app-container
-    padding: 15px;
+    padding: 0px;
     height: 100%;
-    padding-top: $navbar-height + 15px
-    padding-left: $sidebar-width + 15px
+    overflow-x: hidden;
+    padding-top: $navbar-height
+    padding-left: $sidebar-width
 
     & > .row
-      padding: 15px;
+      padding: 30px;
+
+      & > [class*="col-"]
+        margin-bottom: 30px;
+
+
 
     &.app-full
       padding: 0px;
@@ -57,4 +63,10 @@ a:hover
 @include breakpoint($sm)
   body
     .app-container
-      padding-left: 15px;
+      padding-left: 0;
+      padding-top: $navbar-height-min
+      & > .row
+        padding: 15px;
+
+        & > [class*="col-"]
+          margin-bottom: 15px;
