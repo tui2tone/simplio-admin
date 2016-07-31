@@ -17,6 +17,10 @@
         .content
           .title, .value
             color: $color;
+    &.card-chart
+      .card-header
+        background-color: $color;
+        color: $color;
 
 .card
   width: 100%;
@@ -102,7 +106,7 @@
       .icon
         position: absolute;
         font-size: 9em;
-        opacity: 0.2;
+        opacity: 0.1;
         color: $black;
         z-index: 0;
 
@@ -138,6 +142,20 @@
         position: relative;
         display: block;
         clear: both;
+
+  &.card-chart
+    .card-header
+      border-bottom: 0;
+
+      .card-title
+        .title
+          background-color: $white;
+          padding: 6px 12px;
+          border-radius: 2px;
+          font-weight: 400;
+          width: auto;
+          display: inline;
+          text-transform: uppercase;
 
   @include banner("green", $green, $white)
   @include banner("blue", $blue-sky, $white)

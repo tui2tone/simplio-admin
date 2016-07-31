@@ -83,32 +83,6 @@ if($('.ct-chart-bi-polar').length) {
   });
 }
 
-if($('.ct-chart-sale').length) { 
-  new Chartist.Line('.ct-chart-sale', {
-    labels: [15, 16, 17, 18, 19, 20, 21, "Today", 23],
-    series: [
-      [7684,8356,9108,7508,6988, 2961,4500,6302],
-    ]
-  }, {
-    axisX: {
-    },
-    axisY: {
-      offset: 0,
-      showLabel: false,
-    },
-    chartPadding: {
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0
-    },
-    height: 250,
-    showArea: true,
-    fullWidth: true,
-    lineSmooth: false
-  });
-}
-
 if($('.ct-chart-stack-bar').length) { 
   new Chartist.Bar('.ct-chart-stack-bar', {
     labels: ['Q1', 'Q2', 'Q3', 'Q4'],

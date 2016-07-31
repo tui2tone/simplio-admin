@@ -11,5 +11,5 @@ gulp.task('angularjs', () => {
 })
 
 gulp.task('dev', () => {
-  return runSequence('html', 'sass', 'fonts','image', 'assets', 'js:watch','browser-sync','angularjs', 'watch');
+  return runSequence('html', 'sass', 'fonts','image', 'assets', 'vendor', 'js:watch','browser-sync','angularjs', 'watch');
 });

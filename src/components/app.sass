@@ -29,23 +29,32 @@ body
       & > [class*="col-"]
         margin-bottom: 30px;
 
-    & > .app-heading
+    & > .app-heading-container
       margin-top: 0;
       background-color: $white;
       box-shadow: 0 1px 1px $grey;
 
-      .app-title
+      .app-heading
         padding: 30px 60px;
-        .title
-          font-size: 2em;
-          font-weight: 200;
+        @include flex($align: center);
 
-          .highlight
-            color: $green
+        .profile-img
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          margin-right: 30px;
+        .app-title
+          flex: 1;
+          .title
+            font-size: 2em;
+            font-weight: 200;
 
-        .description
-          margin-top: 5px;
-          color: $grey-darkest;
+            .highlight
+              color: $green
+
+          .description
+            margin-top: 5px;
+            color: $grey-darkest;
 
       ul.app-tab
         list-style: none
