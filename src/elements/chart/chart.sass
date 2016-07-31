@@ -8,12 +8,20 @@
 @include chart-colorize("a", $green)
 @include chart-colorize("b", $blue-sky)
 @include chart-colorize("c", $black-lighter)
-@include chart-colorize("d", $red)
+@include chart-colorize("d", $yellow)
+@include chart-colorize("e", $red)
 
 .ct-label
   font-size: 0.85em;
 
 .ct-chart-pie
+  .ct-label
+    fill: $white;
+    font-weight: 400;
+    font-size: 1em;
+
+
+.ct-chart-donut
   .ct-label
     fill: $white;
     font-weight: 400;
@@ -33,3 +41,35 @@
   .ct-label
     fill: $white;
     color: $white;
+
+@mixin chart-label-colorize($name,$color)
+  .ct-series-#{$name}
+    &:after
+      background-color: $color
+
+.chart-label
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  & > li
+    margin-bottom: 5px;
+    padding-left: 30px;
+    height: 20px;
+    position: relative;
+    @include flex($align: center);
+    &:after
+      content: ''
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+
+
+  @include chart-label-colorize("a", $green)
+  @include chart-label-colorize("b", $blue-sky)
+  @include chart-label-colorize("c", $black-lighter)
+  @include chart-label-colorize("d", $yellow)
+  @include chart-label-colorize("e", $red)

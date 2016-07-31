@@ -44,6 +44,45 @@ if($('.ct-chart-pie').length) {
   });
 }
 
+if($('.ct-chart-donut').length) { 
+  let data = {
+    series: [5, 3, 4]
+  };
+
+  let sum = (a, b) => { return a + b };
+
+  new Chartist.Pie('.ct-chart-donut', data, {
+    labelInterpolationFnc: (value) => {
+      return Math.round(value / data.series.reduce(sum) * 100) + '%';
+    },
+    donut: true,
+    donutWidth: 60,
+    labelPosition: 'outside'
+  });
+}
+
+if($('.ct-chart-bi-polar').length) { 
+  new Chartist.Line('.ct-chart-bi-polar', {
+    labels: [1, 2, 3, 4, 5, 6, 7, 8],
+    series: [
+      [1, 2, 3, 1, -2, 0, 1, 0],
+      [-2, -1, -2, -1, -2.5, -1, -2, -1],
+      [0, 0, 0, 1, 2, 2.5, 2, 1]
+    ]
+  }, {
+    high: 3,
+    low: -3,
+    showArea: true,
+    showLine: false,
+    showPoint: false,
+    fullWidth: true,
+    axisX: {
+      showLabel: false,
+      showGrid: false
+    }
+  });
+}
+
 if($('.ct-chart-sale').length) { 
   new Chartist.Line('.ct-chart-sale', {
     labels: [15, 16, 17, 18, 19, 20, 21, "Today", 23],
@@ -67,5 +106,29 @@ if($('.ct-chart-sale').length) {
     showArea: true,
     fullWidth: true,
     lineSmooth: false
+  });
+}
+
+if($('.ct-chart-stack-bar').length) { 
+  new Chartist.Bar('.ct-chart-stack-bar', {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    series: [
+      [800000, 1200000, 1400000, 1300000],
+      [200000, 400000, 500000, 300000],
+      [100000, 200000, 400000, 600000]
+    ]
+  }, {
+    stackBars: true,
+    axisY: {
+      labelInterpolationFnc: function(value) {
+        return (value / 1000) + 'k';
+      }
+    }
+  }).on('draw', function(data) {
+    if(data.type === 'bar') {
+      data.element.attr({
+        style: 'stroke-width: 30px'
+      });
+    }
   });
 }

@@ -53,7 +53,9 @@
   
   &.card-mini
     .card-header
-      padding: 15px 30px ;
+      padding: 20px 30px;
+    .card-body
+      padding: 20px 30px;
 
   &.card-tab
     .card-header
@@ -61,6 +63,7 @@
       padding: 30px;
       padding-bottom: 0;
       padding-top: 0;
+      margin-bottom: 0;
       @include flex;
 
       & > li
@@ -78,6 +81,12 @@
             border-bottom: 3px solid $green;
             color: $green;
 
+  &.card-tab.card-mini
+    .card-header
+      & > li
+        a
+          padding-top: 20px;
+          padding-bottom: 20px;
   &.card-banner
     width: 100%;
     position: relative;

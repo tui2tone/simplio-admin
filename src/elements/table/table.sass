@@ -16,6 +16,15 @@ table.table
           border-bottom-color: $grey;
           color: $black-lighter;
           font-weight: 200;
+
+.card-mini
+  table.table
+    &.card-table
+      & > tbody, & > thead
+        & > tr
+          td, th
+            font-size: $font-size;
+            padding: 15px 30px;
 // table.table-card
 //   border-collapse: separate;
 //   border-spacing: 0px 4px;
