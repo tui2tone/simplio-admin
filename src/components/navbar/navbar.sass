@@ -1,3 +1,10 @@
+@mixin navbar-theme($color)
+  .navbar
+    .navbar-header
+      .navbar-brand
+        .highlight
+          background-color: $color
+
 .navbar
   height: $navbar-height
   z-index: $z-navbar
@@ -48,7 +55,6 @@
         font-weight: 200
         color: $white;
         border-radius: 2px;
-        background-color: $green
         margin-right: 5px;
 
   .navbar-collapse
@@ -71,14 +77,10 @@
           padding: 0 6rem;
           padding-left: 45px;
           border-right: 1px solid $grey
-
           span 
             padding: 0.5rem 0;
-            // border-bottom: 2px solid $black
-
           .highlight
             font-weight: 400;
-            // border-bottom: 2px solid $green
 
         &.search
           input
@@ -281,3 +283,5 @@
         height: $navbar-height-min
       .navbar-toggle
         display: block;
+
+@include navbar-theme($green)

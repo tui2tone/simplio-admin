@@ -1,3 +1,38 @@
+@mixin sidebar-theme($color)
+  aside.app-sidebar
+    .sidebar-header
+      .sidebar-brand
+        .highlight
+          background-color: $color;
+    .sidebar-menu
+      & > li
+        &.active
+          & > a
+            .icon
+              background-color: $color;
+            .title
+              color: $color;
+        &.dropdown
+          & > .dropdown-menu
+            border-left-color: $color;
+          &.open
+            & > a
+              &:after
+                border-right-color: $color;
+    .sidebar-footer
+      ul.menu
+        & > li
+          &.dropdown
+            .dropdown-menu
+              border-bottom-color: $color;
+          &.open
+            & > a
+              &:after
+                border-top-color: $color;
+  .dropdown-menu
+    &.--sidebar
+      border-left-color: $color;
+
 aside.app-sidebar
   @include fixed($width: $sidebar-width, $left: 0)
   @include flex($direction: column)
@@ -25,7 +60,6 @@ aside.app-sidebar
         font-weight: 200
         color: $white;
         border-radius: 2px;
-        background-color: $green
         margin-right: 5px;
 
   .sidebar-menu
@@ -75,13 +109,6 @@ aside.app-sidebar
             i.fa, i.ion
               transform: scale(1.5);
 
-      &.active
-        & > a
-          .icon
-            background-color: $green;
-          .title
-            color: $green;
-
       &.dropdown
         position: static !important;
 
@@ -92,7 +119,8 @@ aside.app-sidebar
           border-radius: 2px;
           box-shadow: 0 1px 1px $grey-darker;
           border: 0;
-          border-left: 4px solid $green;
+          border-left-width: 4px
+          border-left-style: solid
           padding: 0;
           padding-top: $navbar-height;
           min-width: 250px;
@@ -201,26 +229,7 @@ aside.app-sidebar
                 left: 50%;
                 transform: translate(-50%, 0)
 
-
-
 .dropdown-menu
-  &.--sidebar-footer
-    bottom: 80px;
-    width: $sidebar-width;
-    left: 0;
-    box-shadow: 0 1px 1px $grey-darker;
-    border-bottom: 4px solid $green;
-    position: fixed;
-    z-index: $z-sidebar + 5;
-    transform: translate(0, -100%)
-    & > li
-      border: 0
-      border-radius: 0;
-      padding: 0;
-      margin-bottom: 0;
-      font-weight: 300;
-      border-bottom: 1px solid $grey-lighter;
-      font-size: 0.9em;
   &.--sidebar
     top: 0;
     left: $sidebar-width;
@@ -264,3 +273,7 @@ aside.app-sidebar
   body.--sidebar
     aside.app-sidebar
       transform: translate(0,0)
+
+
+/* Default */
+@include sidebar-theme($green)

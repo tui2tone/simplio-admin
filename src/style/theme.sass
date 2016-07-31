@@ -2,4 +2,12 @@
   * Theming
   */
 
-@include theme($class: ".green")
+@mixin theme($class, $color)
+  body.app-#{$class}
+    @include sidebar-theme($color)
+    @include navbar-theme($color)
+
+@include theme("blue", $blue)
+@include theme("blue-sky", $blue-sky)
+@include theme("yellow", $yellow)
+@include theme("red", $red)
