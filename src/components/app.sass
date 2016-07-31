@@ -29,6 +29,46 @@ body
       & > [class*="col-"]
         margin-bottom: 30px;
 
+    & > .app-heading
+      margin-top: 0;
+      background-color: $white;
+      box-shadow: 0 1px 1px $grey;
+
+      .app-title
+        padding: 30px 60px;
+        .title
+          font-size: 2em;
+          font-weight: 200;
+
+          .highlight
+            color: $green
+
+        .description
+          margin-top: 5px;
+          color: $grey-darkest;
+
+      ul.app-tab
+        list-style: none
+        padding: 30px 60px;
+        padding-bottom: 0;
+        padding-top: 0;
+        margin-bottom: 0;
+        border-top: 1px solid $grey-lighter;
+        margin-bottom: 30px;
+        @include flex;
+
+        & > li
+          display: block;
+          margin-bottom: -2px;
+          a
+            padding: 15px 30px;
+            display: block;
+            text-decoration: none;
+            color: $grey-darkest;
+          &.active
+            a
+              border-bottom: 3px solid $green;
+              color: $green;
     &.app-full
       & > *:first-child
         margin-top: 0;
