@@ -1,7 +1,6 @@
 @mixin input-color($name, $border-color)
   &.has-#{$name}
     .form-control
-      border-right-width: 40px;
       border-color: $border-color;
       box-shadow: none;
 
@@ -16,7 +15,7 @@ input, textarea
     background-color: transparent;
     box-shadow: none;
     margin-bottom: 15px;
-    
+      
 textarea
   &.form-control
     padding: 15px;
@@ -71,3 +70,6 @@ input
   .select2-results__option--highlighted[aria-selected]
     background-color: #095077;
     color: $white;
+
+@import './checkbox'
+@import './select'
