@@ -8,6 +8,9 @@ const SERVE_CONFIG = {
   server: {
     baseDir: "./temp/",
     index: "/html/index.html"
+  },
+  ui: {
+    port: 3402
   }
 }
 const server = browserSync.create()
