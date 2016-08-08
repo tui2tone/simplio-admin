@@ -2,12 +2,15 @@
   * Theming
   */
 
-@mixin theme($class, $color)
+@mixin theme($class, $color, $dark-color, $bg)
   body.app-#{$class}
-    @include sidebar-theme($color)
-    @include navbar-theme($color)
+    @include sidebar-theme($color, $bg)
+    @include sidebar-theme($color, $dark-color, ".--inverse")
+    @include navbar-theme($color, $bg)
+    @include navbar-theme($color, $dark-color, ".--inverse")
 
-@include theme("blue", $blue)
-@include theme("blue-sky", $blue-sky)
-@include theme("yellow", $yellow)
-@include theme("red", $red)
+// @include theme("default-inverse", $green, $dark-green)
+@include theme("blue", $blue, $dark-blue, $white)
+@include theme("blue-sky", $blue-sky, $dark-blue, $white)
+@include theme("yellow", $yellow, $dark-blue, $white)
+@include theme("red", $red, $dark-blue, $white)

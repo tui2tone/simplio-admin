@@ -1,7 +1,10 @@
-@mixin navbar-theme($color)
-  .navbar
+@mixin navbar-theme($color, $bg, $extend: '')
+  .navbar#{$extend}
+    background-color: $bg
     .navbar-header
       .navbar-brand
+        @if $extend == ".--inverse"
+          color: $white
         .highlight
           background-color: $color
 
@@ -22,7 +25,7 @@
     margin-left: -15px;
     position: relative;
     text-align: center;
-    box-shadow:  1px 0px 1px 0px rgba(68, 68, 68, 0.1);
+    // box-shadow:  1px 0px 1px 0px rgba(68, 68, 68, 0.1);
     @include flex;
 
     .navbar-toggle
@@ -88,6 +91,7 @@
             height: 100%
             padding: 0 30px
             font-weight: 200
+            background-color: transparent;
 
         &.dropdown
           &.notification
@@ -284,4 +288,5 @@
       .navbar-toggle
         display: block;
 
-@include navbar-theme($green)
+@include navbar-theme($green, $white)
+@include navbar-theme($green, $dark-green, ".--inverse" )

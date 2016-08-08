@@ -9,3 +9,9 @@ import Theming from './components/theming/theming'
 import Demo from './components/demo'
 
 hljs.initHighlightingOnLoad();
+
+// $(window).on("load",function(){
+//     $(".full-height").mCustomScrollbar({
+//       theme: "minimal-dark"
+//     });
+// });

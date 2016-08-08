@@ -1,17 +1,33 @@
-@mixin sidebar-theme($color)
-  aside.app-sidebar
+@mixin sidebar-theme($color, $bg, $extend: '')
+  aside.app-sidebar#{$extend}
+    background-color: $bg
     .sidebar-header
       .sidebar-brand
         .highlight
           background-color: $color;
     .sidebar-menu
       & > li
+        & > a
+          .icon, .title
+            @if $extend == ".--inverse"
+              color: $grey-darker
+            @else
+              color: $grey-darkest
         &.active
           & > a
             .icon
-              background-color: $color;
+              @if $extend == ".--inverse"
+                background-color: transparent;
+                border: 0px solid $white
+                color: $color
+              @else
+                background-color: transparent;
+                color: $color
             .title
-              color: $color;
+              @if $extend == ".--inverse"
+                color: $color
+              @else
+                color: $color;
         &.dropdown
           & > .dropdown-menu
             border-left-color: $color;
@@ -20,6 +36,8 @@
               &:after
                 border-right-color: $color;
     .sidebar-footer
+      border-top-color: rgba(0,0,0,0.1)
+      background-color: $bg
       ul.menu
         & > li
           &.dropdown
@@ -68,6 +86,7 @@ aside.app-sidebar
     margin: 0;
     flex: 1
     width: 100%;
+    overflow: auto;
     padding: 4rem 0;
 
     & > li
@@ -83,31 +102,27 @@ aside.app-sidebar
           @include flex($align: center, $justify: center)
           display: block;
           margin: 0 auto;
-          background-color: $grey-darker;
-          color: $white;
           width: 60px;
           height: 60px;
-          border-radius: 50%;
-          margin-bottom: 1rem;
+          margin-bottom: 0.5rem;
           transition: all 0.2s ease;
 
           i.fa, i.ion
             width: 100%;
             height: 100%;
-            font-size: 2em;
+            font-size: 3em;
             @include flex($align: center, $justify: center)
             transition: all 0.2s ease;
 
         .title
-          font-weight: 300;
+          font-weight: 400;
           font-size: 0.95em;
           color: $grey-darkest
 
         &:hover
           .icon
-            transform: scale(1.1);
             i.fa, i.ion
-              transform: scale(1.5);
+              transform: scale(1.25);
 
       &.dropdown
         position: static !important;
@@ -177,7 +192,7 @@ aside.app-sidebar
           color: $grey-darkest;
 
           .flag-icon
-            box-shadow: 0 1px 1px $grey-lighter;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
         &.dropdown
           position: static !important;
 
@@ -276,4 +291,5 @@ aside.app-sidebar
 
 
 /* Default */
-@include sidebar-theme($green)
+@include sidebar-theme($green, $white)
+@include sidebar-theme($green, $dark-green, ".--inverse" )
