@@ -2,6 +2,10 @@
   "name": "flat-admin-bs3",
   "private": true,
   "dependencies": {
-    "chartist-plugin-pointlabels": "^0.0.4"
+    "chartist-plugin-pointlabels": "^0.0.4",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "select2": "^4.0.3",
+    "chartist": "^0.9.8"
   }
 }
