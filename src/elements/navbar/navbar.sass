@@ -20,11 +20,14 @@
   &.navbar-default
     border: 0
 
+  & > .container-fluid
+    padding-left: 0;
+    padding-right: 0;
+
   .navbar-header
     height: $navbar-height
     padding: 0px;
     width: $sidebar-width
-    margin-left: -15px;
     position: relative;
     text-align: center;
     @include flex;
@@ -46,8 +49,9 @@
     .navbar-brand
       @include flex($align: center, $justify: center)
       height: $navbar-height
-      font-size: 1.4em;
-      font-weight: 200;
+      @include font()
+      font-size: 1.2em;
+      font-weight: 400;
       position: relative;
       margin: 0 auto;
       width: 100%;
@@ -55,7 +59,7 @@
       color: $black
 
       .highlight
-        padding: 2px 5px;
+        padding: 4px 5px;
         font-weight: 200
         color: $white;
         border-radius: 2px;
@@ -65,26 +69,18 @@
     padding-left: $sidebar-width
 
     .navbar-nav
-      height: $navbar-height - 1px
-      border-bottom: 1px solid transparent;
+      height: $navbar-height
+      border-bottom: 0px solid transparent;
       @include flex($align: center)
 
       & > li
         @include flex($align: center)
         height: 100%
 
-        .navbar-title
-          @include flex($align: center)
-          font-weight: 300
-          font-size: 1.3em
-          height: 50%;
-          padding: 0 6rem;
-          padding-left: 45px;
-          border-right: 1px solid $grey
-          span 
-            padding: 0.5rem 0;
-          .highlight
-            font-weight: 400;
+        a, a:hover , a:focus
+          background-color: transparent;
+          font-size: 1.1em
+          @include font()
 
         &.search
           input
@@ -95,26 +91,30 @@
             background-color: transparent;
 
         &.dropdown
+          & > .dropdown-menu
+            margin-top: -15px;
+            border-radius: 3px;
+
           &.notification
             a.dropdown-toggle
               text-align: center;
               display: block;
 
               .icon
-                font-size: 1.5em;
-                margin-bottom: 8px;
+                font-size: 1.8em;
                 color: $grey-darker;
                 transition: all 0.2s ease;
 
               .count
-                font-size: 0.8em;
-                font-weight: 600
+                @include absolute($right: 10px, $top: 10px, $width: auto, $height: auto)
+                font-size: 0.75em;
+                font-weight: 400
                 color: $white;
-                background-color: $grey-darker;
-                padding: 0 5px;
-                min-width: 30px;
+                background-color: rgba($grey-darkest, 0.6);
+                padding: 3px;
+                line-height: 1em;
+                @include font-normal()
                 border-radius: 2px;
-                line-height: 16px;
 
               &:hover
                 .icon
@@ -176,8 +176,9 @@
                 &.dropdown-header
                   background: transparent
                   padding: 1.2rem;
+                  font-size: 1em;
                   color: $white;
-                  font-weight: 400;
+                  font-weight: 300;
                   background-color: $grey-darkest;
                   border-bottom: 0px solid $grey-darkest;
 
@@ -200,7 +201,7 @@
                   text-align: center;
                   color: $grey-darkest;
 
-            &.danger
+            &.--danger
               a.dropdown-toggle
                 .icon 
                   color: $red;
@@ -211,12 +212,12 @@
                 & > li.dropdown-header
                   background-color: $red
                   border-bottom: 0px solid $red;
-            &.warning
+            &.--warning
               a.dropdown-toggle
                 .icon 
                   color: $orange;
                 .count
-                  background-color: $orange;
+                  background-color: rgba($orange, 0.8);
               & > .dropdown-menu
                 & > li.dropdown-header
                   background-color: $orange
@@ -277,6 +278,41 @@
             & > .dropdown-menu
               animation: fadeInUp 0.5s 1;
               display: block;
+
+          &.mega-dropdown
+            position: static !important;
+            & > .dropdown-menu
+              @include absolute($top: 100%, $left: 0, $height: auto)
+              padding: 15px;
+
+              ul.mega-box
+                line-height: 1em;
+                list-style: none;
+                padding: 0 15px;
+                margin: 0;
+                overflow: auto;
+
+                & > li
+                  display: block;
+                  width: 100%;
+                  & > a 
+                    display: block;
+                    font-size: 1.1em;
+                    color: $black-lighter;
+                    margin-bottom: 15px;
+                  &.mega-heading
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    font-size: 1.2em;
+                    color: $green;
+                    @include font()
+                    width: 100% !important;
+                &.--col-2
+                  & > li
+                    display: inline-block;
+                    width: 49%;
+
+
 
 @include breakpoint($sm)
   .navbar
