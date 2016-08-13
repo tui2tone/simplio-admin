@@ -6,6 +6,7 @@ import concat from "gulp-concat";
 const js_libs = [ 
   'bower_components/jquery/dist/jquery.min.js',
   'bower_components/bootstrap/dist/js/bootstrap.min.js',
+  'bower_components/chartist/dist/chartist.min.js',
   'bower_components/chartist-plugin-pointlabels/dist/chartist-plugin-pointlabels.min.js'
 ]
 

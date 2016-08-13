@@ -1,6 +1,6 @@
 @mixin navbar-theme($color, $bg, $extend: '')
   .navbar#{$extend}
-    background-color: $bg
+    background-color: transparent;
     .navbar-header
       .navbar-brand
         @if $extend == ".--inverse"
@@ -11,7 +11,6 @@
 .navbar
   height: $navbar-height
   z-index: $z-navbar
-  background-color: $white;
   border-bottom: 0px solid transparent;
   border-top: 0;
   border-radius: 0;
@@ -47,10 +46,11 @@
       z-index: 1;
 
     .navbar-brand
-      @include flex($align: center, $justify: center)
+      @include flex($align: center)
       height: $navbar-height
       @include font()
       font-size: 1.2em;
+      padding: 0;
       font-weight: 400;
       position: relative;
       margin: 0 auto;
@@ -67,6 +67,7 @@
 
   .navbar-collapse
     padding-left: $sidebar-width
+    padding-right: 0;
 
     .navbar-nav
       height: $navbar-height
@@ -125,6 +126,9 @@
               animation: fadeOutDown 0.5s infinite;
               padding: 0;
               border-radius: 3px;
+              border-top-left-radius: 3px;
+              border-top-right-radius: 3px;
+              overflow: hidden;
               box-shadow: 0 1px 1px $grey-darker;
               border: 0;
               min-width: 200px;
@@ -133,7 +137,7 @@
                 border: 0
                 border-radius: 0;
                 padding: 0;
-                border-bottom: 1px solid $grey;
+                border-bottom: 1px solid $grey-lighter;
                 margin-bottom: 0;
                 font-weight: 300;
                 font-size: 0.9em;
@@ -175,12 +179,14 @@
 
                 &.dropdown-header
                   background: transparent
-                  padding: 1.2rem;
+                  padding: 1.5rem;
+                  text-align: center;
                   font-size: 1em;
                   color: $white;
-                  font-weight: 300;
-                  background-color: $grey-darkest;
-                  border-bottom: 0px solid $grey-darkest;
+                  font-weight: 500;
+                  text-transform: uppercase;
+                  background-color: $black-lighter;
+                  border-bottom: 3px solid $black;
 
                 &.dropdown-footer
                   background-color: transparent
@@ -221,7 +227,7 @@
               & > .dropdown-menu
                 & > li.dropdown-header
                   background-color: $orange
-                  border-bottom: 2px solid $orange;
+                  border-bottom: 3px solid $orange-darker;
           &.profile
             & > a
               @include flex($align: center)
