@@ -1,5 +1,5 @@
 {
-  "name": "flat-admin-bs3",
+  "name": "simplio-bs3",
   "private": true,
   "devDependencies": {
     "autoprefixer": "^6.3.7",
@@ -24,15 +24,17 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
+    "angular-chartist.js": "^4.2.1",
+    "angular-ui-bootstrap": "^2.0.2",
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.6",
-    "chart.js": "^2.2.1",
     "chartist": "^0.9.8",
     "datatables.net": "^1.10.12",
     "datatables.net-bs": "^1.10.12",
     "font-awesome": "^4.6.3",
     "ionicons": "^3.0.0",
     "jquery": "^3.0.0",
-    "spinkit": "^1.2.5"
+    "spinkit": "^1.2.5",
+    "chart.js": "^2.2.1"
   }
 }
