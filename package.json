@@ -26,6 +26,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.6",
+    "chart.js": "^2.2.1",
     "chartist": "^0.9.8",
     "datatables.net": "^1.10.12",
     "datatables.net-bs": "^1.10.12",

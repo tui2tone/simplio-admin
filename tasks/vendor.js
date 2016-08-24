@@ -11,7 +11,8 @@ const jsLibs = [
   'bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js',
   'bower_components/chartist/dist/chartist.min.js',
   'bower_components/chartist-plugin-pointlabels/dist/chartist-plugin-pointlabels.min.js',
-  'bower_components/highlightjs/highlight.pack.min.js'
+  'bower_components/highlightjs/highlight.pack.min.js',
+  'node_modules/chart.js/dist/Chart.bundle.min.js'
 ]
 
 const cssLibs = [

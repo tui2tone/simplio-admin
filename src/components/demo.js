@@ -41,20 +41,27 @@ $(".tab-stats a[data-toggle='tab']").on("shown.bs.tab", (e) => {
 
 
 if($('.ct-chart-sale').length) {
-  const top = 103560
-  let topInsertLabel = false
-  new Chartist.Line('.ct-chart-sale', {
-    labels: ["","MicroSD 64Gb","Mountain Bike", "Flashdrive 128Mb", "Notebook", "MiniPC i5", "Raspberry Pi2",""],
+  new Chartist.Bar('.ct-chart-sale', {
+    labels: ["10:20", "10:30", "10:40", "10:50", "11:00", "11:10", "11:20", "11:30", "11:40", "11:50", "12:00", "12:10", "12:20", "12:30", "12:40", "12:50", "13:00", "13:10", "13:20", "13:30", "13:40", "13:50", "14:00", "14:10", "14:20", "14:30", "14:40", "14:50"],
     series: [
-      [top,103560,91008,75008,69808, 45000, 29601,29601],
+      [2710 ,2810 ,4210 ,8010 ,19158 ,35326 ,80837 ,79477 ,88561 ,67807 ,70837 ,55261 ,66216 ,10516 ,13493 ,12000 ,14253 ,33506 ,56326 ,78986 ,20747 ,44165 ,13817 ,2200 ,65488 ,30704 ,24000 ,16294]
+      // [100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000 ,100000]
     ]
   }, {
     axisX: {
-      position: 'center'
+      offset: 0,
+      labelOffset: {
+        x: 0,
+        y: 0
+      },
+      position: 'center',
+      showLabel: false,
+      showGrid: false
     },
     axisY: {
       offset: 0,
       showLabel: false,
+      showGrid: false,
       labelInterpolationFnc: function(value) {
         return (value / 1000) + 'k';
       }
@@ -65,23 +72,75 @@ if($('.ct-chart-sale').length) {
       bottom: 0,
       left: 0
     },
+    seriesBarDistance: 0,
+    barValueSpacing: 2,
     height: 250,
     high: 120000,
     showArea: true,
-    stackBars: true,
     fullWidth: true,
     lineSmooth: false,
     plugins: [
       Chartist.plugins.ctPointLabels({
         textAnchor: 'left',
         labelInterpolationFnc: function(value) {
-          if(value == top && !topInsertLabel) {
-            topInsertLabel = true
-            return ""
-          }
-          return '$' + value.toFixed(2)
+          return '$' + parseInt(value / 1000) + 'k'
         }
       })
     ]
-  })
+  }, [
+    ['screen and (max-width: 481px)', {
+      axisX: {
+        labelInterpolationFnc: function(value) {
+          return value.slice(0, 4);
+        }
+      }
+    }]
+  ])
 }
+
+
+function ran(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+var min = 0
+var max = 100000
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["10:20", "10:30", "10:40", "10:50", "11:00", "11:10", "11:20", "11:30", "11:40", "11:50", "12:00", "12:10", "12:20", "12:30", "12:40", "12:50", "13:00", "13:10", "13:20", "13:30", "13:40", "13:50", "14:00", "14:10", "14:20", "14:30", "14:40", "14:50"],
+      datasets: [{
+          label: '$#',
+          data: Array(30).fill().map((item) => {
+            return ran(min, max)
+          }),
+          backgroundColor: 'rgba(41, 199, 95, 0.5)',
+          borderWidth: 0
+      }],
+    },
+    options: {
+      maintainAspectRatio: true,
+      fullWidth: true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          display: false,
+          categoryPercentage: 1,
+          barPercentage: 0.95
+        }],
+        yAxes: [{
+          display: false,
+          ticks: {
+            max: 100000,
+            min: 0,
+            stepSize: 10000
+          }
+        }]
+      }
+    }
+});
